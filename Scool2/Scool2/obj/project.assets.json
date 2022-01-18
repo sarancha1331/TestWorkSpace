@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\saran\\OneDrive\\Рабочий стол\\MyNewGit\\TestWorkSpace\\Scool2\\Scool2\\School.csproj",
+      "projectUniqueName": "C:\\Users\\saran\\OneDrive\\Рабочий стол\\RRR\\Scool2\\Scool2\\School.csproj",
       "projectName": "School",
-      "projectPath": "C:\\Users\\saran\\OneDrive\\Рабочий стол\\MyNewGit\\TestWorkSpace\\Scool2\\Scool2\\School.csproj",
+      "projectPath": "C:\\Users\\saran\\OneDrive\\Рабочий стол\\RRR\\Scool2\\Scool2\\School.csproj",
       "packagesPath": "C:\\Users\\saran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\saran\\OneDrive\\Рабочий стол\\MyNewGit\\TestWorkSpace\\Scool2\\Scool2\\obj\\",
+      "outputPath": "C:\\Users\\saran\\OneDrive\\Рабочий стол\\RRR\\Scool2\\Scool2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
