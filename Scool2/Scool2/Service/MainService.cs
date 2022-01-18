@@ -3,6 +3,7 @@ using School.Enums;
 using School.Extentions;
 using School.Interfaces;
 using School.Mock;
+using System.Linq;
 
 namespace School.Service
 {
@@ -15,6 +16,11 @@ namespace School.Service
         /// Переменная для обращения к "БД"
         /// </summary>
         private List<MySchool> MyDBContext;
+
+        /// <summary>
+        /// Массив классов для запроса
+        /// </summary>
+        private int[] classArray = new[] { 2, 4, 6 };
 
         /// <summary>
         /// 
@@ -50,13 +56,16 @@ namespace School.Service
             var test = HobbyListEnum.Swim.GetEnumDescription();
 
             
-            var r1 = MyDBContext.Where(z => z.Id == 1).ToList();    // Так прикольнее
+            var r1 = MyDBContext.Where(z => z.Id == 1).ToList();    
 
             var iuyi = 999;
 
-            var r1_1 = MyDBContext.Where(a => a.Id == 1).SelectMany(q => q.MyClasses.Select(r => r.ToMyClassWithStudentsAndTeachers())).ToList();
+            var r1_1 = MyDBContext.Where(a => a.Id == 1)
+                .SelectMany(q => q.MyClasses
+                    .Select(r => r.ToMyClassWithStudentsAndTeachers()))
+                .ToList();
 
-            var tttttttt1 = 1; // такая переменная для проверки GitA
+            var tttttttt1 = 1; 
             
             /*
             var rezult = MyDBContext.Select(a => a.ToMyClassWithStudentsAndTeachers()).ToList();
@@ -75,10 +84,25 @@ namespace School.Service
 
         /// <summary>
         /// Список всех студентов из 2, 4 и 6 классов
+        /// 
+        ///        Name = "Йцукен__", MyClassId = 2, Hobby
+        ///        Name = "Кулибаба", MyClassId = 2, Hobby
+        ///        Name = "Козладой", MyClassId = 2, Hobby
+
+        ///        Name = "Пупкин__", MyClassId = 4, Hobby
         /// </summary>
         public void Query2()
         {
-            
+            var r2 = MyDBContext.Where(z => z.Id == 1 || z.Id == 2)
+                .SelectMany(x => x.MyClasses
+                    .Where(v => v.Id ==2 || v.Id == 4 || v.Id == 6)
+                        .Select(c => c.ToMyStudents()))
+                .ToList();
+
+
+            var r4 = classArray.Contains(MyDBContext.Where(q => q.Id == 1).Select(w => w.MyClasses).ToList());
+ 
+            var b = 333;
             /*
             var rezult2 = MyDBContext.Where(b => b.Id == 2 || b.Id == 4).Select(ww => ww.ToMyStudents()).ToList();
             var b = 333;
