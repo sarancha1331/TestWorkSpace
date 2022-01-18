@@ -52,7 +52,9 @@ namespace School.Service
             
             var r1 = MyDBContext.Where(z => z.Id == 1).ToList();    // Так прикольнее
 
-            var r1_1 = MyDBContext.Where(a => a.Id == 1).SelectMany(q => q.MyClasses.Select(r => r.ToMyClassWithStudentsAndTeachers)).ToList();
+            var iuyi = 999;
+
+            var r1_1 = MyDBContext.Where(a => a.Id == 1).SelectMany(q => q.MyClasses.Select(r => r.ToMyClassWithStudentsAndTeachers())).ToList();
 
             var tttttttt1 = 1; // такая переменная для проверки GitA
             
