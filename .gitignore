@@ -230,3 +230,5 @@ tests-results
 #log
 Log/
 Files
+Scool2/Scool2/obj/project.assets.json
+Scool2/Scool2/obj/project.nuget.cache

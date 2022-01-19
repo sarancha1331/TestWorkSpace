@@ -13,12 +13,12 @@ namespace School.Extentions
         /// </summary>
         /// <param name="myClass"></param>
         /// <returns></returns>
-        public static MyClassStudents ToMyStudents(this MyClass myClass)
+        public static MyClassStudents ToMyStudents(this Student myStudent)
         {
             return new MyClassStudents()
             {
-                NameStudents = myClass.MyListStudents.Select(w => w.Name).ToList(),
-                ClassId = myClass.Id
+                NameStudent = myStudent.Name,
+                ClassId = myStudent.MyClassId
             };
         }
     }

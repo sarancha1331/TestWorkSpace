@@ -20,7 +20,12 @@ namespace School.Service
         /// <summary>
         /// Массив классов для запроса
         /// </summary>
-        private int[] classArray = new[] { 2, 4, 6 };
+        private List<int> classArray = new List<int> { 2, 4, 6 };
+
+        /// <summary>
+        /// Массив школ
+        /// </summary>
+        private List<int> schoolArray = new List<int> { 1, 2 };
 
         /// <summary>
         /// 
@@ -49,7 +54,7 @@ namespace School.Service
         }
 
         /// <summary>
-        /// Список всех студентов их класс и учитель. Смапить в модель1(по поводу маминга придешь спросишь как будет время)
+        /// Список всех студентов их класс и учитель. Смапить в модель1
         /// </summary>
         public void Query1()
         {
@@ -93,6 +98,7 @@ namespace School.Service
         /// </summary>
         public void Query2()
         {
+            /*
             var r2 = MyDBContext.Where(z => z.Id == 1 || z.Id == 2)
                 .SelectMany(x => x.MyClasses
                     .Where(v => v.Id ==2 || v.Id == 4 || v.Id == 6)
@@ -100,16 +106,22 @@ namespace School.Service
                 .ToList();
 
 
-            //var r3 = MyDBContext.Where(q => q.Id == 1).Select(w => w.MyClasses).ToList();
+            var query = MyDBContext.Where(r => r.Id == 1 || r.Id == 2)
+                .SelectMany(t => t.MyClasses);
 
-            var r4 = MyDBContext.Where(q => q.Id == 1).Select(w => w.MyClasses).ToList();
-
-
-            var b = 333;
-            /*
-            var rezult2 = MyDBContext.Where(b => b.Id == 2 || b.Id == 4).Select(ww => ww.ToMyStudents()).ToList();
-            var b = 333;
+            var result2 = MyDBContext.SelectMany(y => query
+                .Where(h => classArray.Contains(h.Id) && h.SchoolId == y.Id).SelectMany(e => e.MyListStudents))
+                .ToList();
             */
+
+            var result3 = MyDBContext.SelectMany(y => y.MyClasses
+                .Where(h => classArray.Contains(h.Id) &&
+                            schoolArray.Contains(h.SchoolId))
+                .SelectMany(e => e.MyListStudents
+                    .Select(q => q.ToMyStudents())))
+                .ToList();
+
+            var qqqq = 3;
         }
 
         /// <summary>

@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public List<string> NameStudents { get; set; }
+        public string NameStudent { get; set; }
 
         /// <summary>
         /// 
