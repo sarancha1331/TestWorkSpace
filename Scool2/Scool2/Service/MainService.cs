@@ -100,8 +100,11 @@ namespace School.Service
                 .ToList();
 
 
-            var r4 = classArray.Contains(MyDBContext.Where(q => q.Id == 1).Select(w => w.MyClasses).ToList());
- 
+            //var r3 = MyDBContext.Where(q => q.Id == 1).Select(w => w.MyClasses).ToList();
+
+            var r4 = MyDBContext.Where(q => q.Id == 1).Select(w => w.MyClasses).ToList();
+
+
             var b = 333;
             /*
             var rezult2 = MyDBContext.Where(b => b.Id == 2 || b.Id == 4).Select(ww => ww.ToMyStudents()).ToList();
