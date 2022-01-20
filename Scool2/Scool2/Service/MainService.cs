@@ -120,10 +120,12 @@ namespace School.Service
 
             //var rezult3 = MyDBContext.Any(b => b.Id == 2);
 
-            //var r1 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2)).FirstOrDefault();
+            var rezult3 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2)).Any(e => e.SchoolId == 1);
+
+            var a2 = 2;
             //var r2 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2));
             //var s = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).ToList().Any(i => i.SchoolId == 1));
-            var rezult3 = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).FirstOrDefault()).Any(o => o.SchoolId == 1);
+            //var rezult3 = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).FirstOrDefault()).Any(o => o.SchoolId == 1);
 
             var a1 = 1;
 
