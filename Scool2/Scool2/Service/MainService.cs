@@ -58,36 +58,22 @@ namespace School.Service
         /// </summary>
         public void Query1()
         {
-            var test = HobbyListEnum.Swim.GetEnumDescription();
+            //var test = HobbyListEnum.Swim.GetEnumDescription();
 
             
-            var r1 = MyDBContext.Where(z => z.Id == 1).ToList();    
+            var rezult1 = MyDBContext.Where(z => z.Id == 1).ToList();    
 
-            var iuyi = 999;
+            var a1 = 999;
 
-            var r1_1 = MyDBContext.Where(a => a.Id == 1)
+            var rezult1_1 = MyDBContext.Where(a => a.Id == 1)
                 .SelectMany(q => q.MyClasses
                     .Select(r => r.ToMyClassWithStudentsAndTeachers()))
                 .ToList();
 
-            var tttttttt1 = 1; 
-            
-            /*
-            var rezult = MyDBContext.Select(a => a.ToMyClassWithStudentsAndTeachers()).ToList();
-            
-
-            var rezult1_1 = MyDBContext.Select(q => new
-            {
-                test1 = q.ClassName,
-                test2 = q.MyListStudents.Select(w => w.Name).ToList(),
-                test3 = q.MyTeacher.Name
-            }).ToList();
-
-            var a = 333;
-            */
+            var a2 = 1; 
         }
 
-        /// <summary>
+        /// <summary> ЗАДАНИЕ 2:
         /// Список всех студентов из 2, 4 и 6 классов
         /// 
         ///        Name = "Йцукен__", MyClassId = 2, Hobby
@@ -114,25 +100,33 @@ namespace School.Service
                 .ToList();
             */
 
-            var result3 = MyDBContext.SelectMany(y => y.MyClasses
+            var result2_1 = MyDBContext.SelectMany(y => y.MyClasses
                 .Where(h => classArray.Contains(h.Id) &&
                             schoolArray.Contains(h.SchoolId))
                 .SelectMany(e => e.MyListStudents
                     .Select(q => q.ToMyStudents())))
                 .ToList();
 
-            var qqqq = 3;
+            var a1 = 3;
         }
 
-        /// <summary>
-        /// Есть ли хоть 1 студент из 5 класса
+        /// <summary> Задание 3.
+        /// Есть ли хоть 1 студент из 2 класса школы №1
+        /// Студенты есть в 1,2,3,4 классе
+        /// Класс 1,2 в школе 1, Классы 3,4 в школе 2
         /// </summary>
         public void Query3()
         {
-            /*
-            var rezult3 = MyDBContext.Any(b => b.Id == 2);
-            var b = 333;
-            */
+
+            //var rezult3 = MyDBContext.Any(b => b.Id == 2);
+
+            //var r1 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2)).FirstOrDefault();
+            //var r2 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2));
+            //var s = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).ToList().Any(i => i.SchoolId == 1));
+            var rezult3 = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).FirstOrDefault()).Any(o => o.SchoolId == 1);
+
+            var a1 = 1;
+
         }
 
         /// <summary>
