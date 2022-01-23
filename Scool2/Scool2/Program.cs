@@ -24,7 +24,7 @@ namespace School
 
             service.Query6();
             //оловал
-            //Моё изменение
+            //Моё изменение1
         }
 
     }
