@@ -24,7 +24,10 @@ namespace School
 
             service.Query6();
             //оловал
-            //Моё изменение
+            //123123
+            //Моё изменение5555
+
+            //WER WER WER wer
         }
 
     }
