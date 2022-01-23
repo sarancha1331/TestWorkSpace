@@ -23,7 +23,7 @@ namespace School
             service.Query5();
 
             service.Query6();
-            //решение конфликта гит
+            //решение конфликта гит2
         }
 
     }
