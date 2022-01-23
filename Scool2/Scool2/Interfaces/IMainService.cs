@@ -34,5 +34,10 @@
         /// 
         /// </summary>
         public void Query5();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Query6();
     }
 }

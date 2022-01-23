@@ -117,7 +117,8 @@ namespace School.Service
         /// </summary>
         public void Query3()
         {
-            var rezult3 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2)).Any(e => e.SchoolId == 1);
+            var rezult3 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2))
+                .Any(e => e.SchoolId == 1);
 
             var a2 = 2;
             //var r2 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2));
@@ -131,7 +132,7 @@ namespace School.Service
         /// <summary>
         /// Добавить студентам уникальное поле.Хобби.Сделать выборку по массиву студентов
         /// которые занимаются (Плаванием, рисованием и стрельбой) Спортом 
-        /// в школе №1
+
         /// 1 класс - Иванов
         /// 2 класс - Йцукен
         /// </summary>
@@ -143,28 +144,58 @@ namespace School.Service
                     .Any(e => e == HobbyListEnum.Sport)))
                 .ToList();
             */
-            var rezult4 = MyDBContext.Where(q => q.Id == 1).SelectMany(w => w.MyClasses).Where(e => e.MyListStudents.Any(r => r.Hobby.Any(t => t == HobbyListEnum.Sport))).ToList();
-
+            var rezult4 = MyDBContext.SelectMany(q => q.MyClasses)
+                .SelectMany(w => w.MyListStudents
+                .Where(e => e.Hobby
+                .Any(r => r == HobbyListEnum.Sport)))
+                .ToList();
 
             var b = 333;
             
         }
 
         /// <summary>
-        /// 5. Выборка по всем классам. вывести средний бал всех оценок в класее
+        /// 5. Выборка по всем классам. вывести средний бал всех оценок в классе
+        /// Во втором классе (баллы 5, 5, 2)   - средний балл 4
+        /// 
         /// </summary>
         public void Query5()
         {
-            /*
-            var rezult5 = MyDBContext.SelectMany(q => q.MyListStudents.Where(w => w.MyClassId == 2)).Average(n => n.MediumBall);
+            
+            //var rezult5_0 = MyDBContext.SelectMany(q => q.MyListStudents.Where(w => w.MyClassId == 2)).Average(n => n.MediumBall);
 
+            // Выводим средний балл по второму классу
+            var rezult5 = MyDBContext.SelectMany(q => q.MyClasses)
+                .SelectMany(w => w.MyListStudents
+                .Where(e => e.MyClassId == 2))
+                .Average(r => r.MediumBall);
+            
             var b = 1;
-            */
         }
-        //6. Добавляешь ещё список классов(другая школа). Выводишь на экран через Linq учеников всех классов двух школ
+        /// <summary>
+        /// 6. Добавляешь ещё список классов(другая школа). Выводишь на экран через Linq учеников всех классов двух школ
+        /// </summary>
+        public void Query6()
+        {
+            //var rezult6 = MyDBContext.Select(q => q.Id == 1 || q.Id == 2).ToList();
 
+            var result6 = MyDBContext.SelectMany(y => y.MyClasses
+                         .Where(h => schoolArray.Contains(h.SchoolId))
+                         .SelectMany(e => e.MyListStudents
+                             .Select(q => q.ToMyStudents())))
+                         .ToList();
+
+            foreach (var item in result6)
+            {
+                Console.WriteLine(item.NameStudent);
+            }    
+            
+            var bb = 1;
+
+        }
 
 
         //7. Выводишь ученика с самым маленьким средним баллом по 2 школам и с самым большим средним баллом
+
     }
 }
