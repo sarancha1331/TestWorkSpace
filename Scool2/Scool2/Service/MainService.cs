@@ -115,18 +115,14 @@ namespace School.Service
         /// Студенты есть в 1,2,3,4 классе
         /// Класс 1,2 в школе 1, Классы 3,4 в школе 2
         /// </summary>
-        public void Query3()
+        public void Query3() /// сначала выбор Школы, Потом Класса
         {
-            var rezult3 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2))
-                .Any(e => e.SchoolId == 1);
+            var rezult3_4 = MyDBContext.Where(w => w.Id == 1)
+               .Any(j => j.MyClasses
+               .Where(e => e.Id == 2).Select(y => y.MyListStudents).Any());
 
             var a2 = 2;
-            //var r2 = MyDBContext.SelectMany(b => b.MyClasses.Where(q => q.Id == 2));
-            //var s = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).ToList().Any(i => i.SchoolId == 1));
-            //var rezult3 = MyDBContext.Select(q => q.MyClasses.Where(w => w.Id == 2).FirstOrDefault()).Any(o => o.SchoolId == 1);
-
-            var a1 = 1;
-
+             
         }
 
         /// <summary>
@@ -146,8 +142,9 @@ namespace School.Service
             */
             var rezult4 = MyDBContext.SelectMany(q => q.MyClasses)
                 .SelectMany(w => w.MyListStudents
-                .Where(e => e.Hobby
-                .Any(r => r == HobbyListEnum.Sport)))
+                    .Where(e => e.Hobby
+                        .Any(r => r == HobbyListEnum.Sport)))
+                .Select(t => t.Name)
                 .ToList();
 
             var b = 333;
@@ -159,17 +156,15 @@ namespace School.Service
         /// Во втором классе (баллы 5, 5, 2)   - средний балл 4
         /// 
         /// </summary>
-        public void Query5()
+        public void Query5()        // Допилить по всем классам 
         {
-            
-            //var rezult5_0 = MyDBContext.SelectMany(q => q.MyListStudents.Where(w => w.MyClassId == 2)).Average(n => n.MediumBall);
+            var rezult5_1 = MyDBContext.Select(q => q.MyClasses
+                .Select(w => w.MyListStudents
+                    .Average(e => e.MediumBall))
+                    .ToList())
+                .ToList();
 
-            // Выводим средний балл по второму классу
-            var rezult5 = MyDBContext.SelectMany(q => q.MyClasses)
-                .SelectMany(w => w.MyListStudents
-                .Where(e => e.MyClassId == 2))
-                .Average(r => r.MediumBall);
-            
+
             var b = 1;
         }
         /// <summary>
@@ -179,15 +174,14 @@ namespace School.Service
         {
             //var rezult6 = MyDBContext.Select(q => q.Id == 1 || q.Id == 2).ToList();
 
-            var result6 = MyDBContext.SelectMany(y => y.MyClasses
-                         .Where(h => schoolArray.Contains(h.SchoolId))
+            var result6 = MyDBContext.SelectMany(y => y.MyClasses)
                          .SelectMany(e => e.MyListStudents
-                             .Select(q => q.ToMyStudents())))
+                             .Select(q => q.ToMyStudents()))
                          .ToList();
 
             foreach (var item in result6)
             {
-                Console.WriteLine(item.NameStudent);
+                //Console.WriteLine(item.NameStudent);
             }    
             
             var bb = 1;
@@ -195,7 +189,45 @@ namespace School.Service
         }
 
 
-        //7. Выводишь ученика с самым маленьким средним баллом по 2 школам и с самым большим средним баллом
+        //7. Выводишь ученика с самым маленьким средним баллом по 2 школам (вместе) и с самым большим средним баллом
+
+        public void Query7()
+        {
+
+            // пример
+            var r7 = MyDBContext.Select(q => new
+            {
+                number1 = 1+2,
+                number2 = 1 + 2,
+                number3 = 1 + 2,
+            }).FirstOrDefault();
+
+            var aaa = 1;
+
+            var rezult7 = MyDBContext.Select(q => new 
+            {
+                minNumber = q.MyClasses.SelectMany(e => e.MyListStudents.Select(e => e.MediumBall)).ToList().Min(),
+                maxNumber = q.MyClasses.SelectMany(e => e.MyListStudents.Select(e => e.MediumBall)).ToList().Max()
+            })
+            .ToList();
+
+            /*
+            var rezult71 = MyDBContext.SelectMany(q => new
+            {
+                temp = q.MyListStudents.Select(e => e.MediumBall).ToList(),
+                minNumber = q.MyListStudents.Select(e => e.MediumBall).ToList().Min(),
+                maxNumber = q.MyListStudents.Select(e => e.MediumBall).ToList().Max()
+            })
+            .FirstOrDefault();
+            */
+
+            var query1 = MyDBContext.SelectMany(q => q.MyClasses.SelectMany(w => w.MyListStudents.Select(e => e.MediumBall))).ToList();
+
+            var min = query1.Min();
+            var max = query1.Max();
+
+            var a = 1;
+        }
 
     }
 }

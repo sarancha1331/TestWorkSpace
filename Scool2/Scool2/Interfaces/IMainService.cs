@@ -39,5 +39,10 @@
         /// 
         /// </summary>
         public void Query6();
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Query7();
     }
 }

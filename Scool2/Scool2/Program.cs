@@ -24,6 +24,8 @@ namespace School
 
             service.Query6();
 
+            service.Query7();
+
         }
 
     }
