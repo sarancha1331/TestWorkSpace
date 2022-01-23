@@ -232,3 +232,8 @@ Log/
 Files
 Scool2/Scool2/obj/project.assets.json
 Scool2/Scool2/obj/project.nuget.cache
+Scool2/Scool2/obj/project.nuget.cache
+Scool2/Scool2/obj/project.assets.json
+Scool2/Scool2/obj/project.nuget.cache
+*.json
+*.cache
