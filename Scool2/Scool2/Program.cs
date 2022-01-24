@@ -26,6 +26,7 @@ namespace School
 
             service.Query7();
 
+            var testService = new TestSingleton();
         }
 
     }

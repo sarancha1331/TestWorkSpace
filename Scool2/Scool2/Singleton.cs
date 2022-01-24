@@ -8,37 +8,52 @@ using System.Threading.Tasks;
 
 namespace School
 {
-    public static class Singleton
+    public class Singleton
     {
+        private static Singleton Instance;
 
-        public static List<MySchool> MyDBContext;
-        
-        public static object Instance()
+        private Singleton()
         {
-            if (MyDBContext == null)
+
+        }
+        
+        public static Singleton GetInstance
+        {
+            get
             {
-                MyDBContext = new List<MySchool>();
-                var stu = StudentBase.MockStudent();
-                var teach = TeacherBase.MockTeacher();
-                var kls = MyClassBase.MockUchebnogoClassa();
-                var sch = SchoolBase.MockMySchool();
-
-                foreach (var schoolItem in sch)
+                if (Instance == null)
                 {
-                    schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
-
-                    foreach (var myClassItem in schoolItem.MyClasses)
-                    {
-                        myClassItem.MyTeacher = teach.FirstOrDefault(q => q.MyClassId == myClassItem.Id);
-                        myClassItem.MyListStudents = stu.Where(w => w.MyClassId == myClassItem.Id).ToList();
-                    }
-
-                    MyDBContext.Add(schoolItem);
+                    Instance = new Singleton();
+                    SetData();
                 }
+                return Instance;
             }
-                
+         }
 
-            return MyDBContext;
+        public List<MySchool> Data;
+
+        private static void SetData()
+        {
+            Instance.Data = new List<MySchool>();
+
+            var stu = StudentBase.MockStudent();
+            var teach = TeacherBase.MockTeacher();
+            var kls = MyClassBase.MockUchebnogoClassa();
+            var sch = SchoolBase.MockMySchool();
+
+            foreach (var schoolItem in sch)
+            {
+                schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
+
+                foreach (var myClassItem in schoolItem.MyClasses)
+                {
+                    myClassItem.MyTeacher = teach.FirstOrDefault(q => q.MyClassId == myClassItem.Id);
+                    myClassItem.MyListStudents = stu.Where(w => w.MyClassId == myClassItem.Id).ToList();
+                }
+
+                Instance.Data.Add(schoolItem);
+            }
+
         }
     }
 }

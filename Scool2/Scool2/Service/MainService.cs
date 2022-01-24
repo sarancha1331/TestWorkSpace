@@ -33,7 +33,7 @@ namespace School.Service
         public void LocalConstructor()
         {
 
-            MyDBContext = (List<MySchool>)Singleton.Instance();
+            MyDBContext = Singleton.GetInstance.Data;
 
             MyDBContext.Add(new MySchool());
             MyDBContext.Add(new MySchool());
@@ -203,7 +203,7 @@ namespace School.Service
             })
             .FirstOrDefault();
             */
-            var query1 = MyDBContext.SelectMany(q => q.MyClasses.SelectMany(w => w.MyListStudents.Select(e => e.MediumBall))).ToList();
+            var query1 = MyDBContext.Where(a => a.Id == 1 || a.Id == 2).SelectMany(q => q.MyClasses.SelectMany(w => w.MyListStudents.Select(e => e.MediumBall))).ToList();
 
             var min = query1.Min();
             var max = query1.Max();
