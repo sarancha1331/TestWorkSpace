@@ -1,0 +1,25 @@
+Entity. MyClass
+Добавил  public int ClassId { get; set; }
+
+Mock MyClassBase
+Добавил заполнение ClassId 
+
+Переделал linq запрос 3:
+Было:
+/// <summary> Задание 3.
+        /// Есть ли хоть 1 студент из 2 класса школы №1
+        /// Студенты есть в 1,2,3,4 классе
+        /// Класс 1,2 в школе 1, Классы 3,4 в школе 2
+        /// </summary>
+        public void Query3() /// сначала выбор Школы, Потом Класса
+        {
+            var rezult3_4 = MyDBContext.Where(w => w.Id == 1)
+               .Any(j => j.MyClasses
+               .Where(e => e.Id == 2).Select(y => y.MyListStudents).Any());
+
+            var a2 = 2;
+             
+        }
+В последней строке изменил:
+Where(e => e.ClassId== 2).
+

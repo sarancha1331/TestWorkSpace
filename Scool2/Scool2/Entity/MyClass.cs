@@ -29,5 +29,10 @@
         /// Идентификатор школы
         /// </summary>
         public int SchoolId { get; set; }
+
+        /// <summary>
+        /// Новое поле ИД Класса
+        /// </summary>
+        public int ClassId { get; set; }
     }
 }

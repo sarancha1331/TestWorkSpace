@@ -116,7 +116,7 @@ namespace School.Service
         {
             var rezult3_4 = MyDBContext.Where(w => w.Id == 1)
                .Any(j => j.MyClasses
-               .Where(e => e.Id == 2).Select(y => y.MyListStudents).Any());
+               .Where(e => e.ClassId == 2).Select(y => y.MyListStudents).Any());
 
             var a2 = 2;
              
