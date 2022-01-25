@@ -1,4 +1,6 @@
-﻿namespace School.Entity
+﻿using School.Enums;
+
+namespace School.Entity
 {
     /// <summary>
     /// 
@@ -19,5 +21,11 @@
         /// 
         /// </summary>
         public List<MyClass> MyClasses { get; set; }
+
+        /// <summary>
+        /// Характеристика Школы
+        /// </summary>
+        public List<SchollCharacteristic> Characteristics { get; set; }
+
     }
 }
