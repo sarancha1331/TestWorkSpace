@@ -40,6 +40,7 @@ namespace School
             var teach = TeacherBase.MockTeacher();
             var kls = MyClassBase.MockUchebnogoClassa();
             var sch = SchoolBase.MockMySchool();
+            var sc_exent = EventsBase.MockEvents();
 
             foreach (var schoolItem in sch)
             {

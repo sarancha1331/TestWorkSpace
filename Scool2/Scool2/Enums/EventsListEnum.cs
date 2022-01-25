@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace School.Enums
 {
-    public enum SchollCharacteristic
+    public enum EventsListEnum
     {
         /// <summary>
-        /// Компьютерный класс
+        /// 1 е сентября
         /// </summary>
-        ComputerClass = 1,
+        September1 = 1,
 
         /// <summary>
-        /// Класс химии
+        /// Новый год
         /// </summary>
-        ChemistryClass = 2,
+        NewYear = 2,
 
         /// <summary>
-        /// Спортзал
+        /// Каникулы
         /// </summary>
-        gym = 3
+        holiday = 3
+
+
+
     }
 }

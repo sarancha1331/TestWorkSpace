@@ -15,8 +15,9 @@ namespace School.Mock
         {
             List<MySchool> mySchool = new List<MySchool>();
 
-            mySchool.Add(new MySchool() { Id = 1, SchoolName = "School 1", Characteristics = new List<Enums.SchollCharacteristic>() { Enums.SchollCharacteristic.ComputerClass}});
-            mySchool.Add(new MySchool() { Id = 2, SchoolName = "School 2", Characteristics = new List<Enums.SchollCharacteristic>() { Enums.SchollCharacteristic.gym }});
+            mySchool.Add(new MySchool() {   Id = 1, SchoolName = "School 1", Characteristics = new List<Enums.SchollCharacteristicListEnums>() { Enums.SchollCharacteristicListEnums.ComputerClass}, EventsId = 1});
+            
+            mySchool.Add(new MySchool() { Id = 2, SchoolName = "School 2", Characteristics = new List<Enums.SchollCharacteristicListEnums>() { Enums.SchollCharacteristicListEnums.gym }, EventsId = 2});
 
             return mySchool;
         }
