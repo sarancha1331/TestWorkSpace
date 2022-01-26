@@ -9,9 +9,9 @@ namespace School.Entity
 {
     public class Events
     {
-        public int EventsId { get; set; }
+        public int Id { get; set; }
 
-        public List<EventsListEnum> EventsName { get; set; }
+        public List<EventsListEnum> EventName { get; set; }
 
         public DateTime EventsDate { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace School.Enums
 {
-    public enum AvailabilityOfAdditionalSections
+    public enum AvailabilityOfAdditionalSectionsEnums
     {
         /// <summary>
         /// Компьютерный класс
