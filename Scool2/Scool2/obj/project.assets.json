@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\1VSProekts\\GitHubMain\\Scool2\\Scool2\\School.csproj",
+      "projectUniqueName": "C:\\TASKS\\GitHubMain\\Scool2\\Scool2\\School.csproj",
       "projectName": "School",
-      "projectPath": "G:\\1VSProekts\\GitHubMain\\Scool2\\Scool2\\School.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "G:\\1VSProekts\\GitHubMain\\Scool2\\Scool2\\obj\\",
+      "projectPath": "C:\\TASKS\\GitHubMain\\Scool2\\Scool2\\School.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\TASKS\\GitHubMain\\Scool2\\Scool2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

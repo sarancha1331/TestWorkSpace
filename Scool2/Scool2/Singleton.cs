@@ -45,6 +45,7 @@ namespace School
             foreach (var schoolItem in sch)
             {
                 schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
+                schoolItem.Events = sc_exent.Where(w => w.EventsId == schoolItem.Id).ToList();
 
                 foreach (var myClassItem in schoolItem.MyClasses)
                 {
