@@ -13,7 +13,7 @@ namespace School.Entity
 
         public List<EventsListEnum> EventName { get; set; }
 
-        public DateTime EventsDate { get; set; }
+        public DateTime EventDate { get; set; }
 
         public int SchoolId { get; set; }
     }
