@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace School.Enums
 {
-    public enum SchollCharacteristicListEnums
+    public enum AvailabilityOfAdditionalSections
     {
         /// <summary>
         /// Компьютерный класс
@@ -21,6 +21,6 @@ namespace School.Enums
         /// <summary>
         /// Спортзал
         /// </summary>
-        gym = 3
+        Gym = 3
     }
 }

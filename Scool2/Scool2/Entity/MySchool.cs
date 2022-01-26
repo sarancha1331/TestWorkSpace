@@ -25,7 +25,7 @@ namespace School.Entity
         /// <summary>
         /// Характеристика Школы
         /// </summary>
-        public List<SchollCharacteristicListEnums> Characteristics { get; set; }
+        public List<AvailabilityOfAdditionalSections> Characteristics { get; set; }
 
         public int EventsId { get; set; }
 

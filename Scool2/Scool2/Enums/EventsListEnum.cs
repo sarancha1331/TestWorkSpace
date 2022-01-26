@@ -21,7 +21,7 @@ namespace School.Enums
         /// <summary>
         /// Каникулы
         /// </summary>
-        holiday = 3
+        Holiday = 3
 
 
 
