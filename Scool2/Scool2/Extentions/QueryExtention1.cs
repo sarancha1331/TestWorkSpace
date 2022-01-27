@@ -18,7 +18,7 @@ namespace School.Extentions
             return new MyClassWithStudentsAndTeachers() 
             {
                 ClassName = myClass.ClassName,
-                NameStudents = myClass.MyListStudents.Select(w => w.Name).ToList(), 
+                NameStudents = myClass.MyListStudent.Select(w => w.Name).ToList(), 
                 NameTeacher = myClass.MyTeacher.Name
             };
         }

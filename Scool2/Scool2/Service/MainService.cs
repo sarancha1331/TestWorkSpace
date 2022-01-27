@@ -116,7 +116,7 @@ namespace School.Service
         {
             var rezult3_4 = MyDBContext.Where(w => w.Id == 1)
                .Any(j => j.MyClasses
-               .Where(e => e.ClassId == 2).Select(y => y.MyListStudents).Any());
+               .Where(e => e.ClassId == 2).Select(y => y.MyListStudent).Any());
 
             var a2 = 2;
              
@@ -203,7 +203,7 @@ namespace School.Service
             })
             .FirstOrDefault();
             */
-            var query1 = MyDBContext.Where(a => a.Id == 1 || a.Id == 2).SelectMany(q => q.MyClasses.SelectMany(w => w.MyListStudents.Select(e => e.MediumBall))).ToList();
+            var query1 = MyDBContext.Where(a => a.Id == 1 || a.Id == 2).SelectMany(q => q.MyClasses.SelectMany(w => w.MyListStudent.Select(e => e.MediumBall))).ToList();
 
             var min = query1.Min();
             var max = query1.Max();

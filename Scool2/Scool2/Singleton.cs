@@ -40,17 +40,17 @@ namespace School
             var teach = TeacherBase.MockTeacher();
             var kls = MyClassBase.MockUchebnogoClassa();
             var sch = SchoolBase.MockMySchool();
-            var sc_exent = EventsBase.MockEvents();
+            var sc_exent = EventBase.MockEvents();
 
             foreach (var schoolItem in sch)
             {
                 schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
-                schoolItem.Events = sc_exent.Where(w => w.Id == schoolItem.Id).ToList();
+                schoolItem.Event = sc_exent.Where(w => w.Id == schoolItem.Id).ToList();
 
                 foreach (var myClassItem in schoolItem.MyClasses)
                 {
                     myClassItem.MyTeacher = teach.FirstOrDefault(q => q.MyClassId == myClassItem.Id);
-                    myClassItem.MyListStudents = stu.Where(w => w.MyClassId == myClassItem.Id).ToList();
+                    myClassItem.MyListStudent = stu.Where(w => w.MyClassId == myClassItem.Id).ToList();
                 }
 
                 Instance.Data.Add(schoolItem);

@@ -25,10 +25,10 @@ namespace School.Entity
         /// <summary>
         /// Характеристика Школы
         /// </summary>
-        public List<AvailabilityOfAdditionalSectionsEnums> Characteristics { get; set; }
+        public List<AvailabilityOfAdditionalSectionsEnum> Characteristic { get; set; }
 
         //public int EventsId { get; set; }
 
-        public List<Events> Events { get; set; }
+        public List<Event> Event { get; set; }
     }
 }

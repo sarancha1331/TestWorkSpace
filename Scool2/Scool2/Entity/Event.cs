@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace School.Entity
 {
-    public class Events
+    public class Event
     {
         public int Id { get; set; }
 
-        public List<EventsListEnum> EventName { get; set; }
+        public List<EventListEnum> EventName { get; set; }
 
         public DateTime EventDate { get; set; }
 

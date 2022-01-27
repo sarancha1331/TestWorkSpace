@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace School.Extentions
 {
-    public static class EnumsHelper
+    public static class EnumHelper
     {
         /// <summary>
         /// Получить значение атрибута Description у параметра.

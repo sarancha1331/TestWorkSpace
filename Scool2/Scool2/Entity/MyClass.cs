@@ -18,7 +18,7 @@
         /// <summary>
         /// Список студентов класса
         /// </summary>
-        public List<Student> MyListStudents { get; set; }
+        public List<Student> MyListStudent { get; set; }
 
         /// <summary>
         /// Учитель класса

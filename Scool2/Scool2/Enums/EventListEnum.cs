@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace School.Enums
 {
-    public enum EventsListEnum
+    public enum EventListEnum
     {
         /// <summary>
         /// 1 е сентября
