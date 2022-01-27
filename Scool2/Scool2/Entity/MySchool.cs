@@ -30,5 +30,7 @@ namespace School.Entity
         //public int EventsId { get; set; }
 
         public List<Event> Event { get; set; }
+
+        public List<AutoPark> Park { get; set; }
     }
 }
