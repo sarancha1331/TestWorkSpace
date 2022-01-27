@@ -39,6 +39,7 @@ namespace School
             var stu = StudentBase.MockStudent();
             var teach = TeacherBase.MockTeacher();
             var kls = MyClassBase.MockUchebnogoClassa();
+            var park = ParkBase.MockPark();
             var sch = SchoolBase.MockMySchool();
             var sc_exent = EventBase.MockEvents();
 
@@ -46,6 +47,7 @@ namespace School
             {
                 schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
                 schoolItem.Event = sc_exent.Where(w => w.Id == schoolItem.Id).ToList();
+                schoolItem.Park =  park.Where(e => e.Id == schoolItem.Id).ToList();
 
                 foreach (var myClassItem in schoolItem.MyClasses)
                 {
