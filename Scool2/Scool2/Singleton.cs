@@ -40,14 +40,17 @@ namespace School
             var teach = TeacherBase.MockTeacher();
             var kls = MyClassBase.MockUchebnogoClassa();
             var park = ParkBase.MockPark();
+            var bus = BusBase.MockBus();
             var sch = SchoolBase.MockMySchool();
             var sc_exent = EventBase.MockEvents();
 
             foreach (var schoolItem in sch)
             {
                 schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
-                schoolItem.Event = sc_exent.Where(w => w.Id == schoolItem.Id).ToList();
-                schoolItem.Park =  park.Where(e => e.Id == schoolItem.Id).ToList();
+                schoolItem.Event = sc_exent.Where(w => w.SchoolId == schoolItem.Id).ToList();
+                schoolItem.Park =  park.FirstOrDefault(e => e.MySchoolId == schoolItem.Id);
+
+                schoolItem.Park.Buses = bus.Where(r => r.AutoParkId == schoolItem.Id).ToList();
 
                 foreach (var myClassItem in schoolItem.MyClasses)
                 {

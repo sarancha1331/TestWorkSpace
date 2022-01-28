@@ -10,7 +10,9 @@ namespace School.Entity
     {
         public int Id { get; set; }
 
-        public List<Bus> IdBus { get; set; }
+        public List<Bus> Buses { get; set; }
+
+        public int MySchoolId { get; set; }
 
     }
 }

@@ -9,15 +9,15 @@ namespace School.Mock
 {
     public class BusBase
     {
-        public static List<Bus> MoskBus()
+        public static List<Bus> MockBus()
         {
-            List<Bus> NameBus = new List<Bus>();
-            NameBus.Add(new Bus() { Id = 1, NameBus = "Богдан" });
-            NameBus.Add(new Bus() { Id = 2, NameBus = "Mersedes Bus" });
-            NameBus.Add(new Bus() { Id = 2, NameBus = "Икарус" });
-            NameBus.Add(new Bus() { Id = 2, NameBus = "Ford Bus" });
+            List<Bus> nameBus = new List<Bus>();
+            nameBus.Add(new Bus() { Id = 1, NameBus = "Богдан", AutoParkId = 1 });
+            nameBus.Add(new Bus() { Id = 2, NameBus = "Mersedes Bus", AutoParkId = 2 });
+            nameBus.Add(new Bus() { Id = 3, NameBus = "Икарус", AutoParkId = 3 });
+            nameBus.Add(new Bus() { Id = 4, NameBus = "Ford Bus", AutoParkId = 4 });
 
-            return NameBus;
+            return nameBus;
         }
     }
 }

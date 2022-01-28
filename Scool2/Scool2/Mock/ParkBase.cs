@@ -11,15 +11,16 @@ namespace School.Mock
     {
         public static List<AutoPark> MockPark()
         {
-            List<AutoPark> Park = new List<AutoPark>();
-            Park.Add(new AutoPark() { Id = 1 });
-            Park.Add(new AutoPark() { Id = 2 });
-            Park.Add(new AutoPark() { Id = 3 });
-            Park.Add(new AutoPark() { Id = 4 });
-            Park.Add(new AutoPark() { Id = 5 });
-            Park.Add(new AutoPark() { Id = 6 });
+            List<AutoPark> park = new List<AutoPark>();
 
-            return Park;
+            park.Add(new AutoPark() { Id = 1, MySchoolId = 1 });
+            park.Add(new AutoPark() { Id = 2, MySchoolId = 2 });
+            park.Add(new AutoPark() { Id = 3, MySchoolId = 3 });
+            park.Add(new AutoPark() { Id = 4, MySchoolId = 4 });
+            park.Add(new AutoPark() { Id = 5, MySchoolId = 5 });
+            park.Add(new AutoPark() { Id = 6, MySchoolId = 6 });
+
+            return park;
         }
     }
 }

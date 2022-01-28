@@ -1,5 +1,6 @@
 ﻿using School.Interfaces;
 using School.Mock;
+using School.Param;
 using School.Service;
 
 namespace School
@@ -10,6 +11,8 @@ namespace School
         public static void Main()
         {
             IMainService service = new MainService();
+            TestSingleton testService = new TestSingleton();
+            IParkService parkService = new ParkServis();
 
             service.LocalConstructor();
 
@@ -27,11 +30,15 @@ namespace School
 
             service.Query7();
 
-            var testService = new TestSingleton();
+ 
 
-            var ppp = BusBase.MoskBus();
+            var param = new BusParam() 
+            {
+                BusName = "Автобусик",
+                SchoolName = "School 1"
+            };
 
-            var aaa = 1;
+            parkService.AddBus(param);
         }
 
     }

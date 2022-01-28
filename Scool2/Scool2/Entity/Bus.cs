@@ -11,5 +11,7 @@ namespace School.Entity
         public int Id { get; set; }
 
         public string NameBus { get; set; }
+
+        public int AutoParkId { get; set; }
     }
 }
