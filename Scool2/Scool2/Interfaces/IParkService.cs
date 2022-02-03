@@ -11,6 +11,8 @@ namespace School.Interfaces
     {
         public void AddBus(BusParam busParam);
 
+        public void GetListBus(BusParam busParam);
+
         public List<string> GetBusBySchoolName(string schoolName);
     }
 }

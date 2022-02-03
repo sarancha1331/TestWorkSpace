@@ -35,10 +35,27 @@ namespace School
             var param = new BusParam() 
             {
                 BusName = "Автобусик",
-                SchoolName = "School 1"
+                SchoolName = "School 2"
             };
 
             parkService.AddBus(param);
+
+            param = new BusParam()
+            {
+                BusName = "SuperBus",
+                SchoolName = "School 2"
+            };
+
+            parkService.AddBus(param);
+
+            //Тут хотим получить список автобусов в заданной школе
+            var param_get = new BusParam()
+            {
+                SchoolName = "School 2"
+            };
+
+            parkService.GetListBus(param_get);
+
         }
 
     }

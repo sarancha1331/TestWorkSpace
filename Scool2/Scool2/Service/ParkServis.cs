@@ -35,6 +35,23 @@ namespace School.Service
             var a = 333;
         }
 
+        public void GetListBus(BusParam busParam)
+        {
+            var scholl = MyDBContext.FirstOrDefault(q => q.SchoolName == busParam.SchoolName);
+            var i = 0;
+
+            Console.WriteLine("В выбранной школе : " + busParam.SchoolName + " ,количество автобусов - " + scholl.Park.Buses.Count());
+            Console.WriteLine();
+
+            foreach (var item in scholl.Park.Buses)
+            {
+                Console.WriteLine(scholl.Park.Buses[i].NameBus);
+                i++;
+            }
+
+            var b = 333;
+        }
+
         public List<string> GetBusBySchoolName(string schoolName)
         {
             return null;
