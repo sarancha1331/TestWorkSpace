@@ -56,7 +56,35 @@ namespace School
 
             parkService.GetListBus(param_get);
 
+            // Начало Авторизации
+            Console.WriteLine(" - - - АВТОРИЗАЦИЯ - - - ");
+            Console.WriteLine();
+
+            bool rezultAuthorization = false;
+            string login, pass;
+
+            do 
+            { 
+                Console.WriteLine("введите логин");
+                login = Console.ReadLine();
+                Console.WriteLine("введите пароль");
+                pass = Console.ReadLine();
+
+                rezultAuthorization = Authorization.Validation(login, pass);
+
+                Console.WriteLine();
+                if (!rezultAuthorization)
+                    Console.WriteLine("Вы ввели неправильные данные! ПОВТОРИТЕ ВВОД");
+
+                Console.WriteLine();
+            }
+            while(!rezultAuthorization);
+
+            Console.WriteLine("УСПЕШНАЯ АВТОРИЗАЦИЯ " );
+
         }
+
+        
 
     }
 }
