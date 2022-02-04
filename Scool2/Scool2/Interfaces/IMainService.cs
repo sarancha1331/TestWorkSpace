@@ -8,11 +8,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public void LocalConstructor();
-
-        /// <summary>
-        /// 
-        /// </summary>
         public void Query1();
 
         /// <summary>

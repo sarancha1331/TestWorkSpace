@@ -51,10 +51,5 @@ namespace School.Service
 
             var b = 333;
         }
-
-        public List<string> GetBusBySchoolName(string schoolName)
-        {
-            return null;
-        }
     }
 }

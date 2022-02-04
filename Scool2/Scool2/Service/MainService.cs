@@ -30,39 +30,9 @@ namespace School.Service
         /// <summary>
         /// 
         /// </summary>
-        public void LocalConstructor()
+        public MainService()
         {
-
             MyDBContext = Singleton.GetInstance.Data;
-
-            MyDBContext.Add(new MySchool());
-            MyDBContext.Add(new MySchool());
-            MyDBContext.Add(new MySchool());
-            MyDBContext.Add(new MySchool());
-
-
-            var a = 3;
-            /*
-            MyDBContext = new List<MySchool>();
-
-            var stu = StudentBase.MockStudent();
-            var teach = TeacherBase.MockTeacher();
-            var kls = MyClassBase.MockUchebnogoClassa();
-            var sch = SchoolBase.MockMySchool();
-
-            foreach (var schoolItem in sch)
-            {
-                schoolItem.MyClasses = kls.Where(q => q.SchoolId == schoolItem.Id).ToList();
-
-                foreach (var myClassItem in schoolItem.MyClasses)
-                {
-                    myClassItem.MyTeacher = teach.FirstOrDefault(q => q.MyClassId == myClassItem.Id);
-                    myClassItem.MyListStudents = stu.Where(w => w.MyClassId == myClassItem.Id).ToList();
-                }
-
-                MyDBContext.Add(schoolItem);
-            }
-            */
         }
 
         /// <summary>
