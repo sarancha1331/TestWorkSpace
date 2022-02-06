@@ -1,10 +1,12 @@
-﻿using School.Interfaces;
+﻿using School.DataAccess;
+using School.Interfaces;
 using School.Param;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace School.Service
 {
@@ -23,8 +25,6 @@ namespace School.Service
         /// </summary>
         private IParkService _parkService;
 
-        private bool isLoggedIn = false;
-
         public Authorization()
         {
             string login, pass;
@@ -35,14 +35,16 @@ namespace School.Service
                 Console.Write("введите пароль: ");
                 pass = Console.ReadLine();
 
+                //login = "Admin";
+                //pass = "Admin";
+
+
                 Console.WriteLine();
 
-                if (login == Login && pass == Pass)
+                if (Singleton.CheckAccessIsSuccesful(login, pass))
                 {
-                    isLoggedIn = true;
                     break;
                 }
-                    
                 else
                 {
                     Console.WriteLine("Вы ввели неправильные данные! ПОВТОРИТЕ ВВОД");
@@ -59,7 +61,7 @@ namespace School.Service
 
         public void AddBus(BusParam busParam)
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -69,7 +71,7 @@ namespace School.Service
 
         public void GetListBus(BusParam busParam)
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -79,7 +81,7 @@ namespace School.Service
 
         public void Query1()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -89,7 +91,7 @@ namespace School.Service
 
         public void Query2()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -99,7 +101,7 @@ namespace School.Service
 
         public void Query3()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -109,7 +111,7 @@ namespace School.Service
 
         public void Query4()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -119,7 +121,7 @@ namespace School.Service
 
         public void Query5()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -129,7 +131,7 @@ namespace School.Service
 
         public void Query6()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;
@@ -139,7 +141,7 @@ namespace School.Service
 
         public void Query7()
         {
-            if (!isLoggedIn)
+            if (!Singleton.IsAuthorization())
             {
                 Console.WriteLine("Access denite");
                 return;

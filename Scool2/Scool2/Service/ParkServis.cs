@@ -1,4 +1,5 @@
-﻿using School.Entity;
+﻿using School.DataAccess;
+using School.Entity;
 using School.Interfaces;
 using School.Param;
 using System;
@@ -37,9 +38,14 @@ namespace School.Service
 
         public void GetListBus(BusParam busParam)
         {
-            var scholl = MyDBContext.FirstOrDefault(q => q.SchoolName == busParam.SchoolName);
-            var i = 0;
+            //var scholl = MyDBContext.FirstOrDefault(q => q.SchoolName == busParam.SchoolName);
 
+            var busList = MyDBContext.FirstOrDefault(q => q.SchoolName == busParam.SchoolName).Park.Buses.ToList().Select(w => w.NameBus).ToList();
+
+            //var bn = busList.Select(q => q.NameBus).ToList();
+
+            var i = 0;
+            /*
             Console.WriteLine("В выбранной школе : " + busParam.SchoolName + " ,количество автобусов - " + scholl.Park.Buses.Count());
             Console.WriteLine();
 
@@ -48,8 +54,7 @@ namespace School.Service
                 Console.WriteLine(scholl.Park.Buses[i].NameBus);
                 i++;
             }
-
-            var b = 333;
+            */
         }
     }
 }

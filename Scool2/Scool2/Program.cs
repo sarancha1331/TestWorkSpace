@@ -12,6 +12,20 @@ namespace School
         {
              IAuthorization dataConnection = new Authorization();
 
+            dataConnection.AddBus(
+                new BusParam()
+                {
+                    BusName = "Маршрутка 100",
+                    SchoolName = "School 2"
+                });
+
+            dataConnection.AddBus(
+                new BusParam()
+                {
+                    BusName = "Маршрутка 78",
+                    SchoolName = "School 2"
+                });
+
             dataConnection.GetListBus(
                 new BusParam()
                 {

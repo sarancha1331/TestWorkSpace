@@ -1,4 +1,5 @@
-﻿using School.Entity;
+﻿using School.DataAccess;
+using School.Entity;
 using School.Mock;
 using System;
 using System.Collections.Generic;
@@ -6,35 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School
+namespace School.DataAccess
 {
     public class Singleton
     {
-        private static Singleton Instance;
+        public List<MySchool> Data;
 
-        private Singleton()
-        {
+        private static Singleton _instance;
 
-        }
-        
+        private static Verification _verification = new Verification();
+
         public static Singleton GetInstance
         {
             get
             {
-                if (Instance == null)
+                if (_instance == null)
                 {
-                    Instance = new Singleton();
+                    _instance = new Singleton();
                     SetData();
                 }
-                return Instance;
+                return _instance;
             }
-         }
+        }
 
-        public List<MySchool> Data;
+        public static bool CheckAccessIsSuccesful(string login, string pass)
+        {
+            return _verification.Сheck(login, pass);
+        }
+
+        public static bool IsAuthorization()
+        {
+            return _verification.IsAuthorization();
+        }
 
         private static void SetData()
         {
-            Instance.Data = new List<MySchool>();
+            _instance.Data = new List<MySchool>();
 
             var stu = StudentBase.MockStudent();
             var teach = TeacherBase.MockTeacher();
@@ -58,7 +66,7 @@ namespace School
                     myClassItem.MyListStudent = stu.Where(w => w.MyClassId == myClassItem.Id).ToList();
                 }
 
-                Instance.Data.Add(schoolItem);
+                _instance.Data.Add(schoolItem);
             }
 
         }
