@@ -8,7 +8,7 @@ namespace School.WorkingWithFiles
 {
     public class DirAndFiles
     {
-        public static void Dir(string path, string newDir)
+        public void Dir(string path, string newDir)
         {
             if (Directory.Exists(path))
             {
@@ -20,6 +20,14 @@ namespace School.WorkingWithFiles
                 Console.WriteLine("К  ожалению нет такого каталога:" + path);
             }
 
+        }
+
+        public void CreateTxtFile1(string path, string newDir, string NameFile)
+        {
+            if (Directory.Exists(path))
+            {
+                System.IO.File.Create(path + "/" + newDir + "/" + NameFile);
+            }
         }
 
         public static void CreateTxtFile(string path, string newDir, string NameFile)

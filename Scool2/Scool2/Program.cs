@@ -33,7 +33,13 @@ namespace School
                     SchoolName = "School 2"
                 });
 
-            DirAndFiles.Dir("d:/1", "222");
+            DirAndFiles dirAndFiles = new DirAndFiles();
+            dirAndFiles.Dir("d:/1", "222");
+
+            //DirAndFiles.Dir("d:/1", "222");
+            dirAndFiles.CreateTxtFile1("d:/1", "222", "111_new.txt");
+
+
 
             DirAndFiles.CreateTxtFile("d:/1", "222","111.txt");
 
