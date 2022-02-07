@@ -35,8 +35,8 @@ namespace School.Service
                 Console.Write("введите пароль: ");
                 pass = Console.ReadLine();
 
-                //login = "Admin";
-                //pass = "Admin";
+                login = "Admin";
+                pass = "Admin";
 
 
                 Console.WriteLine();

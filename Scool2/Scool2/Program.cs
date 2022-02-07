@@ -2,6 +2,7 @@
 using School.Mock;
 using School.Param;
 using School.Service;
+using School.WorkingWithFiles;
 
 namespace School
 {
@@ -31,6 +32,14 @@ namespace School
                 {
                     SchoolName = "School 2"
                 });
+
+            DirAndFiles.Dir("d:/1", "222");
+
+            DirAndFiles.CreateTxtFile("d:/1", "222","111.txt");
+
+            DirAndFiles.CreateDocFile("d:/1", "222", "111.doc");
+
+            DirAndFiles.CreateExlFile("d:/1", "222", "111.xls");
         }
 
         
