@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using School.Js;
+using System.Text.Json;
 
 namespace School.Service
 {
@@ -30,14 +32,25 @@ namespace School.Service
             string login, pass;
             do
             {
-                Console.Write("введите логин: ");
-                login = Console.ReadLine();
-                Console.Write("введите пароль: ");
-                pass = Console.ReadLine();
+                bool OnOff;
+                using (FileStream fs = new FileStream("C:\\TASKS\\GitHubMain\\Authorization.json", FileMode.OpenOrCreate))
+                {
+                    Qwe authorization = JsonSerializer.Deserialize<Qwe>(fs);
+                    OnOff = authorization.OnOff;
+                }
 
-                login = "Admin";
-                pass = "Admin";
-
+                if (OnOff == true)
+                {
+                    Console.Write("введите логин: ");
+                    login = Console.ReadLine();
+                    Console.Write("введите пароль: ");
+                    pass = Console.ReadLine();
+                }
+                else
+                {
+                    login = "Admin";
+                    pass = "Admin";
+                }
 
                 Console.WriteLine();
 

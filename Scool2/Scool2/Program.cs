@@ -1,8 +1,10 @@
 ﻿using School.Interfaces;
+using School.Js;
 using School.Mock;
 using School.Param;
 using School.Service;
 using School.WorkingWithFiles;
+using System.Text.Json;
 
 namespace School
 {
@@ -13,7 +15,7 @@ namespace School
         {
              IAuthorization dataConnection = new Authorization();
 
-            dataConnection.AddBus(
+             dataConnection.AddBus(
                 new BusParam()
                 {
                     BusName = "Маршрутка 100",
