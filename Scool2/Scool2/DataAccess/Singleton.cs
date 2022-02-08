@@ -1,6 +1,7 @@
 ﻿using School.DataAccess;
 using School.Entity;
 using School.Mock;
+using School.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace School.DataAccess
 
         private static Verification _verification = new Verification();
 
+        private static SettingService _settingService = new SettingService();
+
         public static Singleton GetInstance
         {
             get
@@ -28,6 +31,16 @@ namespace School.DataAccess
                 }
                 return _instance;
             }
+        }
+
+        public static SettingProject GetSettingProject()
+        {
+            return _settingService.GetSetting();
+        }
+
+        public static void SetIsLoggedIn(bool newValue)
+        {
+            _verification.SetIsLoggedIn(newValue);
         }
 
         public static bool CheckAccessIsSuccesful(string login, string pass)

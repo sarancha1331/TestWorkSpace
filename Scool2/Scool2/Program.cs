@@ -1,5 +1,4 @@
 ﻿using School.Interfaces;
-using School.Js;
 using School.Mock;
 using School.Param;
 using School.Service;

@@ -27,6 +27,11 @@ namespace School.DataAccess
             return false;
         }
 
+        public void SetIsLoggedIn(bool newValue)
+        {
+            isLoggedIn = newValue;
+        }
+
         public bool IsAuthorization()
         {
             return isLoggedIn;

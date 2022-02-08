@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School.Js
+namespace School.Entity
 {
-    public class Qwe
+    public class SettingProject
     {
-        public bool OnOff { get; set; }
-
-     
+        public bool IsEnabledAuthorization { get; set; }
     }
 }

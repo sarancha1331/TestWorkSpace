@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-using School.Js;
 using System.Text.Json;
 
 namespace School.Service
@@ -30,43 +29,39 @@ namespace School.Service
         public Authorization()
         {
             string login, pass;
-            do
-            {
-                bool OnOff;
-                using (FileStream fs = new FileStream("C:\\TASKS\\GitHubMain\\Authorization.json", FileMode.OpenOrCreate))
-                {
-                    Qwe authorization = JsonSerializer.Deserialize<Qwe>(fs);
-                    OnOff = authorization.OnOff;
-                }
 
-                if (OnOff == true)
+            if (Singleton.GetSettingProject().IsEnabledAuthorization)
+            {
+                do
                 {
                     Console.Write("введите логин: ");
                     login = Console.ReadLine();
                     Console.Write("введите пароль: ");
                     pass = Console.ReadLine();
-                }
-                else
-                {
+
                     login = "Admin";
                     pass = "Admin";
-                }
 
-                Console.WriteLine();
+                    Console.WriteLine();
 
-                if (Singleton.CheckAccessIsSuccesful(login, pass))
-                {
-                    break;
+                    if (Singleton.CheckAccessIsSuccesful(login, pass))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы ввели неправильные данные! ПОВТОРИТЕ ВВОД");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Вы ввели неправильные данные! ПОВТОРИТЕ ВВОД");
-                    Console.ReadLine();
-                    Console.Clear();
-                }
+                while (true);
             }
-            while (true);
-
+            else
+            { 
+                Singleton.SetIsLoggedIn(true);
+            }
+ 
             _mainService = new MainService();
             _parkService = new ParkServis();
 
