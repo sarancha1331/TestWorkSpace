@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace School.Interfaces
 {
-    public interface IAuthorization: IMainService, IParkService, ISaveReadToFile
+    public interface ISaveReadToFile
     {
-        
+        public void SaveToFile();
+
+        public void ReadFromFile();
+
+        public void VerifyData();
     }
 }

@@ -34,6 +34,10 @@ namespace School
                     SchoolName = "School 2"
                 });
 
+            dataConnection.SaveToFile();
+            dataConnection.ReadFromFile();
+            dataConnection.VerifyData();
+
             DirAndFiles dirAndFiles = new DirAndFiles();
             dirAndFiles.Dir("d:/1", "222");
 

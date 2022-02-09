@@ -11,7 +11,7 @@ using System.Text.Json;
 
 namespace School.Service
 {
-    public class Authorization : IAuthorization, IMainService, IParkService
+    public class Authorization : IAuthorization, IMainService, IParkService, ISaveReadToFile
     {
         private const string Login = "Admin";
         private const string Pass = "Admin";
@@ -25,6 +25,8 @@ namespace School.Service
         /// 
         /// </summary>
         private IParkService _parkService;
+
+        private ISaveReadToFile _saveReadToFile;
 
         public Authorization()
         {
@@ -64,8 +66,23 @@ namespace School.Service
  
             _mainService = new MainService();
             _parkService = new ParkServis();
-
+            _saveReadToFile = new SaveReadToFile();
     }
+
+        public void SaveToFile()
+        {
+            _saveReadToFile.SaveToFile();
+        }
+
+        public void ReadFromFile()
+        {
+            _saveReadToFile.ReadFromFile();
+        }
+
+        public void VerifyData()
+        {
+            _saveReadToFile.VerifyData();
+        }
 
         public void AddBus(BusParam busParam)
         {
